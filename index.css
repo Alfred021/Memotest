@@ -1,7 +1,12 @@
-.hidden{
+.hidden {
     display: none;
-}
+};
 
-.img-fluid{
-    border: solid darkseagreen;
-}
+.img-fluid {
+    height: 150px;
+    width: 150px;
+    margin: 5px;
+    background-color: aquamarine;
+};
+
+
