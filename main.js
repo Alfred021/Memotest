@@ -34,20 +34,24 @@ const cardArray = [
 ];
 
 let mergeArray = cardArray.concat(cardArray);
+mergeArray.sort(() => 0.5 - Math.random())
+let counter = 0;
 
+let cards = document.querySelector('#cards');
 const startButton = document.querySelector('#start');
+
 startButton.onclick = function (event) {
-    const cards = document.querySelector('#cards');
-    const row = document.createElement('div');
-    row.className = 'row row-cols-4';
+
+    let row = document.createElement('div');
+    row.className = 'row'
     cards.appendChild(row);
-    const col = document.createElement('div');
-    col.className = 'col';
-    row.appendChild(col)
 
 mergeArray.forEach(key => {
-    const card = document.createElement('div');
-    card.className = 'img-fluid';
+    let col = document.createElement('div');
+    col.className = 'col';
+    row.appendChild(col)
+    let card = document.createElement('img');
+    card.className = 'img-fluid background-image';
     card.dataset.name = key.name;
     card.style.backgroundImage = `url(${key.img})`
     col.appendChild(card);
@@ -55,6 +59,7 @@ mergeArray.forEach(key => {
 
   event.preventDefault()
 };
+
 
 
 

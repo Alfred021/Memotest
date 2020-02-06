@@ -2,11 +2,18 @@
     display: none;
 };
 
-.img-fluid {
+.background-image{
     height: 150px;
     width: 150px;
     margin: 5px;
     background-color: aquamarine;
 };
 
+.selected {
+    border: 3px springgreen;
+}
 
+img {
+    padding: 10px;
+    height: 175px;
+}
