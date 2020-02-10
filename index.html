@@ -7,33 +7,97 @@
     <title>Memory Game</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./index.css">
 </head>
 
 <body>
     <div class="container">
         <div class="row">
             <div class="col-sm-3" id="Moves">
-                <strong id="player-moves">0</strong> Moves
+                <div class="alert alert-info" id="player-moves">
+                    Moves: 
+                </div>
             </div>
 
-           <div class="col-sm-4" id="timer">
-                Playtime: 
+           <div class="col-sm-4" id="timer-panel">
+               <div class="alert alert-info" id= "timer">
+                Playtime:
+               </div>
+               
            </div>
 
-           <div class="col-sm-5" id="status">
-                Welcome!
+           <div class="col-sm-5" id="status-panel">
+            <div class="alert alert-info" id= "status">
+             Welcome
+               </div>
            </div>
         </div>
     </div>
 
     <div class="container">
-        <button type="button" id="start">Start</button>
+        <button type="button"  class="btn btn-primary" id="start">Start</button>
     </div> 
 
 
     <div class="container" id="cards">
-        
+        <div class="row">
+            <div class="col">
+                <div class="card color-hidden" onclick="onCardClicked(event)"></div>
+            </div>
+            <div class="col">
+                <div class="card color-hidden" onclick="onCardClicked(event)"></div>
+            </div>
+            <div class="col">
+                <div class="card color-hidden" onclick="onCardClicked(event)"></div>
+            </div>
+            <div class="col">
+                <div class="card color-hidden" onclick="onCardClicked(event)"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="card color-hidden" onclick="onCardClicked(event)"></div>
+            </div>
+            <div class="col">
+                <div class="card color-hidden" onclick="onCardClicked(event)"></div>
+            </div>
+            <div class="col">
+                <div class="card color-hidden" onclick="onCardClicked(event)"></div>
+            </div>
+            <div class="col">
+                <div class="card color-hidden" onclick="onCardClicked(event)"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="card color-hidden" onclick="onCardClicked(event)"></div>
+            </div>
+            <div class="col">
+                <div class="card color-hidden" onclick="onCardClicked(event)"></div>
+            </div>
+            <div class="col">
+                <div class="card color-hidden" onclick="onCardClicked(event)"></div>
+            </div>
+            <div class="col">
+                <div class="card color-hidden" onclick="onCardClicked(event)"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="card color-hidden" onclick="onCardClicked(event)"></div>
+            </div>
+            <div class="col">
+                <div class="card color-hidden" onclick="onCardClicked(event)"></div>
+            </div>
+            <div class="col">
+                <div class="card color-hidden" onclick="onCardClicked(event)"></div>
+            </div>
+            <div class="col">
+                <div class="card color-hidden" onclick="onCardClicked(event)"></div>
+            </div>
+        </div>
     </div>
     
 

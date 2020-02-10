@@ -1,67 +1,76 @@
-const cardArray = [
-    {
-        name: 'Aerith',
-        img: 'img/Aerith.jpg',
-    },
-    {
-        name: 'Barrett',
-        img: 'img/Barrett.jpg',
-    },
-    {
-        name: 'Cloud',
-        img: 'img/Cloud.jpg',
-    },
-    {
-        name: 'RedXIII',
-        img: 'img/Red_XIII.jpg',
-    },
-    {
-        name: 'Sephiroth',
-        img: 'img/Sephiroth.jpg',
-    },
-    {
-        name: 'Tifa',
-        img: 'img/Tifa.jpg',
-    },
-    {
-        name: 'Vincent',
-        img: 'img/Vincent.jpg',
-    },
-    {
-        name: 'Yuffie',
-        img: 'img/Yuffie.jpg',
-    },
+let clickedCard = null
+let preventClick = false;
+let combosFound = 0;
+const $board = document.querySelector('#cards')
+$board.className = 'hidden'
+const $starButton = document.querySelector('#start');
+$starButton.onclick = function (event){
+    $board.className = 'container'
+
+    event.preventDefault();
+}
+let moves = 0;
+
+const colors = [
+    'red',
+    'blue',
+    'cyan',
+    'violet',
+    'green',
+    'rose',
+    'black',
+    'brown',
 ];
 
-let mergeArray = cardArray.concat(cardArray);
-mergeArray.sort(() => 0.5 - Math.random())
-let counter = 0;
+const cards = [...document.querySelectorAll('.card')];
 
-let cards = document.querySelector('#cards');
-const startButton = document.querySelector('#start');
+for (let color of colors) {
+    const cardAIndex = parseInt(Math.random() * cards.length);
+    const cardA = cards[cardAIndex];
+    cards.splice(cardAIndex, 1);
+    cardA.className += ` ${color}`;
+    cardA.setAttribute('data-color', color);
 
-startButton.onclick = function (event) {
+    const cardBIndex = parseInt(Math.random() * cards.length);
+    const cardB = cards[cardBIndex];
+    cards.splice(cardBIndex, 1);
+    cardB.className += ` ${color}`;
+    cardB.setAttribute('data-color', color);
+}
 
-    let row = document.createElement('div');
-    row.className = 'row'
-    cards.appendChild(row);
+function onCardClicked(e) {
+    const target = e.currentTarget;
 
-mergeArray.forEach(key => {
-    let col = document.createElement('div');
-    col.className = 'col';
-    row.appendChild(col)
-    let card = document.createElement('img');
-    card.className = 'img-fluid background-image';
-    card.dataset.name = key.name;
-    card.style.backgroundImage = `url(${key.img})`
-    col.appendChild(card);
-});
+    if (preventClick || target === clickedCard || target.className.includes('done')) {
+        return;
+    }
+    target.className = target.className.replace('color-hidden', '').trim();
+    target.className += ' done'
 
-  event.preventDefault()
-};
+if (!clickedCard) {  
+    clickedCard = target;
+    
+} else if (clickedCard) {
 
-
-
-
-
+    if (clickedCard.getAttribute('data-color') !== target.getAttribute('data-color')) {
+        preventClick = true
+        setTimeout(() => {
+            clickedCard.className = clickedCard.className.replace('done', '').trim() + ' color-hidden';
+            target.className = target.className.replace('done', '').trim() + ' color-hidden';
+            clickedCard = null;
+            preventClick = false;
+        }, 500);
+        moves++
+        console.log(moves)
+    } else {
+        combosFound++
+        clickedCard = null;
+        if (combosFound === 8) {
+            alert('You Win')
+        }
+    }
+        
+}
+    e.preventDefault();
+}
 
