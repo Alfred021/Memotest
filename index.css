@@ -8,10 +8,11 @@
 
 .card {
     display: inline-block;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     background-color: beige;
     cursor: pointer;
+    padding: 10px;
 }
 
 .card.done {
@@ -30,7 +31,7 @@
 
 
 #cards {
-    max-width: 960px;
+    max-width: 650px;
     text-align: center;
     padding-top: 20px;
 }
