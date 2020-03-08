@@ -72,6 +72,8 @@
     background-color: beige;
 }
 
-.btn {
+#start {
     text-align: center;
+    margin: 0 auto;
+    display: block;
 }
