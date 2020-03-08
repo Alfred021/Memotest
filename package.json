@@ -4,7 +4,10 @@
   "description": "Memory Game",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress-open": "cypress open",
+    "start-server": "http-server",
+    "cypress-run": "cypress run"
   },
   "repository": {
     "type": "git",
@@ -18,5 +21,8 @@
   "homepage": "https://github.com/Alfred021/Memotest#readme",
   "dependencies": {
     "bootstrap": "^4.4.1"
+  },
+  "devDependencies": {
+    "cypress": "^4.1.0"
   }
 }

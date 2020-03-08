@@ -3,12 +3,14 @@ let preventClick = false;
 let combosFound = 0;
 const combosToWin = 8;
 const $board = document.querySelector('#cards')
+const $card = document.getElementsByClassName('card');
 const container = document.querySelectorAll('.alert-info')
-$board.className = 'hidden'
+$board.className = 'hidden';
 const $starButton = document.querySelector('#start');
 const $gameStatus = document.querySelector('#status');
 let moves = 0;
 let timer;
+
 $starButton.onclick = function (event){
     $board.className = 'container'
     $gameStatus.innerHTML = "Let's Play!";
@@ -35,8 +37,6 @@ $starButton.onclick = function (event){
     event.preventDefault();
 }
 
-
-
 const colors = [
     'red',
     'blue',
@@ -50,7 +50,7 @@ const colors = [
 
 const cards = [...document.querySelectorAll('.card')];
 
-for (let color of colors) {
+for (const color of colors) {
     const cardAIndex = parseInt(Math.random() * cards.length);
     const cardA = cards[cardAIndex];
     cards.splice(cardAIndex, 1);
@@ -62,6 +62,12 @@ for (let color of colors) {
     cards.splice(cardBIndex, 1);
     cardB.className += ` ${color}`;
     cardB.setAttribute('data-color', color);
+}
+
+for (i=0, len = $card.length; i < len; i++) {
+    $card[i].addEventListener("click", function(e){
+       onCardClicked(e); 
+    });
 }
 
 
@@ -115,4 +121,3 @@ if (!clickedCard) {
 }
     e.preventDefault();
 }
-
