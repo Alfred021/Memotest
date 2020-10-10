@@ -12,7 +12,7 @@ let moves = 0;
 let timer;
 
 $starButton.onclick = function (event){
-    $board.className = 'container'
+     $board.className = 'container'
     $gameStatus.innerHTML = "Let's Play!";
 
     timer = setInterval(countTimer, 1000);
