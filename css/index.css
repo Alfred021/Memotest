@@ -15,15 +15,6 @@
     padding: 10px;
 }
 
-.card.done {
-    cursor: default;
-}
-
-.card.done:hover {
-    cursor: default;
-    box-shadow: none;
-}
-
 .card:hover {
     border: 1px solid greenyellow;
     box-sizing: border-box;
